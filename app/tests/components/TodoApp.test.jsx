@@ -20,4 +20,22 @@ describe('TodoApp', () => {
 
         expect(todoApp.state.todos[0].text).toBe(todoText);
     })
+
+    it('should change completed value in cliked todo  component', () => {
+
+        var todos = [
+            {
+                id:'sdfsadfas',
+                text:'do Something',
+                completed: false
+            },
+        ];
+
+        var todoApp = TestUtils.renderIntoDocument(<TodoApp />);
+        todoApp.setState({todos:todos});
+        expect(todoApp.state.todos[0].completed).toBe(false);
+        todoApp.handleToggle(todos[0].id);
+
+        expect(todoApp.state.todos[0].completed).toBe(true);
+    })
 })
