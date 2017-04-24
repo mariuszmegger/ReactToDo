@@ -34,7 +34,7 @@ describe('Reducers', () => {
                 type:'ADD_TODO',
                 text:'walk the dog'
             }
-            var res = reducers.toodosReducer(df([]), df(action));
+            var res = reducers.todosReducer(df([]), df(action));
 
             expect(res.length).toEqual(1);
             expect(res[0].text).toEqual(action.text);
@@ -57,7 +57,7 @@ describe('Reducers', () => {
                 id:10
             }
 
-            var res = reducers.toodosReducer(df(todos), df(action));
+            var res = reducers.todosReducer(df(todos), df(action));
             expect(res[0].completed).toEqual(true);
             expect(res[0].completedAt).toExist();
         })
